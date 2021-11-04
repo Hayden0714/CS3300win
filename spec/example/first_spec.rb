@@ -19,18 +19,3 @@ RSpec.describe "hello spec" do
     end
   end
  end
-
- #starting to write my own tests
- require "rails_helper"
-
- Rspec.describe 'Project' do
-  before do
-    @project = Project.new(title:newproject, description:thisisanewproject)
-  end
-
-  context 'identify' do
-    it 'should says the project was created on the page' do
-      expect(@project.page).to eq("Project was successfully created")
-    end
-  end
-end
