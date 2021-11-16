@@ -70,6 +70,9 @@ group :test do
   #installing simplecov
   gem 'simplecov', require: false
 
+  #installing factory boyt
+  gem 'factory_bot_rails'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -86,6 +89,9 @@ end
 group :development, :test do
   gem 'capybara', '>= 2.15'
 end
+
+#adding factorybot
+
 
 
 

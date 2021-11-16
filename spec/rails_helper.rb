@@ -60,4 +60,23 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+end
+
+require 'rspec/rails'
+
+# Add these after require 'rspec/rails'
+require 'devise'
+require_relative 'support/controller_macros'
+
+# ...
+
+RSpec.configure do |config|
+    
+    # ...
+
+    # Add these
+    config.include Devise::Test::ControllerHelpers, :type => :controller
+    config.include FactoryBot::Syntax::Methods
+    config.extend ControllerMacros, :type => :controller
 end

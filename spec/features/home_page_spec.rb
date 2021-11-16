@@ -1,12 +1,5 @@
-require 'rails_helper'
 
-RSpec.feature "HomePages", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
-end
-
-
-#another test
-
+#testing the home page as a visitor, they should see projects
 require "rails_helper"
 
 RSpec.feature "Visiting the homepage", type: :feature do
