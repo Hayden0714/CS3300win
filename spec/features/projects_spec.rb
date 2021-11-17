@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative "../support/devise"
 
 RSpec.feature "Projects", type: :feature do
   pending "add some scenarios (or delete) #{__FILE__}"
@@ -10,13 +11,10 @@ RSpec.feature "Projects", type: :feature do
   context "Create new project" do
     before(:each) do
       visit new_project_path
-      within("form") do
-        fill_in "Title", with: "Test title"
-      end
+      project = Project.new(title: "testing title", description: "testing description")
     end
 
     scenario "should be successful" do
-      fill_in "Description", with: "Test description"
       click_button "Create Project"
       expect(page).to have_content("Project was successfully created")
     end
