@@ -1,7 +1,18 @@
 FactoryBot.define do
+    sequence :email do |n|
+        "email#{n}@example.com"
+    end
+
+    sequence :username do |n|
+        "user#{n}name"
+    end
+    
+
     factory :user do
-        email {"testing@example.com"}
-        password {"qwerty"}
-        #can add other requirements for building a user such as admin status if needed
+        email
+        password {"testingpassword"}
+        firstname {"firstname"}
+        lastname {"lastname"}
+        username
     end
 end

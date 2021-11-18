@@ -1,15 +1,12 @@
 require 'rails_helper'
-require_relative "../support/devise"
+require_relative '../support/devise'
 
 RSpec.feature "Projects", type: :feature do
-  pending "add some scenarios (or delete) #{__FILE__}"
-end
+  
 
-require 'rails_helper'
-
-RSpec.feature "Projects", type: :feature do
   context "Create new project" do
     before(:each) do
+      login_user
       visit new_project_path
       project = Project.new(title: "testing title", description: "testing description")
     end
