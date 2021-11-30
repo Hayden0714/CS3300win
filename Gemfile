@@ -90,6 +90,12 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
 end
 
+#adding bootstrap
+gem 'bootstrap', '~> 4.6.1'
+
+#adding jQuery
+gem 'jquery-rails'
+
 #adding factorybot
 
 
