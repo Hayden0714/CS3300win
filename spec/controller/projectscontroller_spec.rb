@@ -1,10 +1,8 @@
 require 'rails_helper'
+require_relative '../support/devise'
 
 # Change this ArticlesController to your project
 RSpec.describe ProjectsController, type: :controller do
-
-    # This should return the minimal set of attributes required to create a valid
-    # Article. As you add validations to Article, be sure to adjust the attributes here as well.
 
     #log the user in first
     login_user
@@ -23,4 +21,20 @@ RSpec.describe ProjectsController, type: :controller do
             #expect(response).to have_http_status(302) # Expects a HTTP Status code of 302
         end
     end
+
+    describe "GET /" do
+        login_user
+
+        context "from login user" do
+            it "should return 200:OK" do
+                get :index
+                expect(response).to have_http_status(:success)
+            end
+        end
+    end
+
+    
+    
+    
+
 end
