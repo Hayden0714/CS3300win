@@ -9,9 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <%= render 'home/navbar' %>
-  <%= render 'home/homescreen' %>
-
+  <% if user_signed_in? %>
+    <%= render 'home/navbarsignedin' %>
+  <% else %>
+    <%= render 'home/navbarsignedout' %>
+  <% end %>
+  
   <body>
     <div class="container">
       <%= yield %>
