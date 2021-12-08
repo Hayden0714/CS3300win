@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<!-- this is the layout of the page that shows individual projects
+you can edit this page to make the projects look better on their own page-->
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @project.title %> </h5>
+    <p class="card-text"><%= @project.description %></p>
+    <a href="#" class="btn btn-primary">
+      <%= link_to 'Back', projects_path %>
+    </a>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_project_path(@project) %>
+  <% end %>
+</div>
