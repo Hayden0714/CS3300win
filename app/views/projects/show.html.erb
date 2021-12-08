@@ -5,9 +5,9 @@ you can edit this page to make the projects look better on their own page-->
   <div class="card-body">
     <h5 class="card-title"><%= @project.title %> </h5>
     <p class="card-text"><%= @project.description %></p>
-    <a href="#" class="btn btn-primary">
-      <%= link_to 'Back', projects_path %>
-    </a>
+    
+      <%= link_to 'Back', projects_path, :class => "btn btn-primary btn-lg" %>
+    
   </div>
 
   <% if user_signed_in? %>
