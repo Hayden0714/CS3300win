@@ -1,16 +1,13 @@
-<!-- this is the layout of the page that shows individual projects
-you can edit this page to make the projects look better on their own page-->
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= @project.title %> </h5>
-    <p class="card-text"><%= @project.description %></p>
-    
-      <%= link_to 'Back', projects_path, :class => "btn btn-primary btn-lg" %>
-    
-  </div>
+<div class="jumbotron text-center">
+  <h1 class="display-4"><%= @project.title %></h1>
+  
+  <hr class="my-4">
+  <p><%= @project.description %></p>
 
   <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_project_path(@project) %>
+    <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary btn-sm" %>
+    <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+    
   <% end %>
+  
 </div>
