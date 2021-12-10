@@ -4,10 +4,13 @@
   <hr class="my-4">
   <p><%= @project.description %></p>
 
+  <%= link_to 'Back', projects_path, :class => "btn btn-primary btn-sm" %>
+
   <% if user_signed_in? %>
     <%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-primary btn-sm" %>
     <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
     
   <% end %>
+
   
 </div>

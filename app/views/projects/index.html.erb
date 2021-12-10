@@ -1,29 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+<!--about me section with small area to talk about myself-->
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to my portfolio site!</h1>
+  <p class="lead">My name is Hayden Olmstead and this is my web application for CS3300, using Ruby on Rails.</p>
+  <hr class="my-4">
+  <p>My name is Hayden and I am currently studying computer security at UCCS, I also manage a wine bar in Pueblo, and play video games in my free time. This class has
+  been very interesting and I have actually thought about changing to comptuer science or a similar field because of it!</p>
+ 
+</div>
+
 <h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- grid system for displaying all of the projects in a neat way-->
 
-  <tbody>
+
+<div class="container">
+  <div class="row">
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+          <div class="col-lg">
+            <div class="card" style="width: 20rem;">  
+              <div class="card-body">
+                <h5 class="card-title"><%= project.title.truncate(50) %></h5>
+                <p class="card-text"><%= project.description.truncate(150) %></p>
+                <%= link_to 'See more', project, :class => "btn btn-primary btn-sm" %>
+              </div>
+            </div>
+          </div>
     <% end %>
-  </tbody>
-</table>
+</div>
+</div>
 
-<br>
-<%= link_to 'New Project', new_project_path, :class => "btn btn-primary btn-lg" %>
-</button>
+<% if user_signed_in? %>
+  <%= link_to 'New Project', new_project_path, :class => "btn btn-primary btn-lg" %>
+<% end %>
